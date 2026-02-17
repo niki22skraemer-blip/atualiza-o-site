@@ -1,0 +1,289 @@
+/* ===================== AJUSTE LOCAL DO CONTEÚDO ===================== */
+/* Regras globais (html, body, fonte base, overflow, reset)
+   ficam EXCLUSIVAMENTE no geral.css */
+
+/* Espaçamento do conteúdo em relação ao header fixo */
+main {
+  margin-top: 70px;
+}
+
+/* Títulos usados dentro da página Serviços */
+.titulos {
+  font-size: 20px;
+  color: #252733;
+  text-align: center;
+}
+
+/* ===================== PADRÃO DE ESPAÇAMENTO ENTRE SECTIONS ===================== */
+.secao-1,
+.secao-2,
+.secao-3,
+.secao-4,
+.secao-5,
+.secao-6 {
+  padding: 60px 0;
+}
+
+/* ===================== SEÇÃO 1 ===================== */
+
+.secao-1 {
+  text-align: center;
+  padding: 60px 20px; /* padrão igual aos outros */
+  background-image: linear-gradient(
+    to bottom right,
+    #23317e,
+    #27498c,
+    #2450a6,
+    #0465bf
+  );
+}
+
+.secao-1 .titulo-1 {
+  max-width: 800px;
+  margin: 0 auto;
+  color: white;
+  font-size: clamp(22px, 4.8vw, 30px);
+  line-height: 1.15;
+}
+
+.secao-1 .subtitulo {
+  max-width: 800px;
+  margin: 12px auto 0;
+  color: white;
+  font-size: clamp(16px, 3.5vw, 20px);
+  line-height: 1.4;
+  font-weight: 300;
+}
+
+.secao-1 .subtitulo p {
+  margin: 20px;
+  font-size: clamp(16px, 3.5vw, 20px);
+  line-height: 1.4;
+}
+
+/* ===================== SEÇÃO 2 ===================== 
+
+
+/* ===================== SEÇÃO 3 ===================== */
+
+.secao-3 {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 30px;
+  align-items: center;
+}
+
+.secao-3 .texto {
+  max-width: none;
+}
+
+.secao-3 img {
+  width: 100%;
+  max-width: 420px;
+  border-radius: 40px;
+  display: block;
+  justify-self: center;
+}
+
+.secao-3 p {
+  font-size: 20px;
+  text-align: justify;
+  margin: 0;
+}
+
+/* ===================== MOBILE (SEÇÕES 2 e 3) ===================== */
+
+@media (max-width: 768px) {
+  .secao-2,
+  .secao-3 {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .secao-2 p,
+  .secao-3 p {
+    text-align: justify;
+    line-height: 1.6;
+    padding: 20px;
+  }
+
+  .secao-5 .container-sistema{
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+/* ===================== SEÇÃO 4 =====================
+
+.secao-4 {
+  margin: 0; /* padrão igual aos outros: sem margem externa
+}
+
+.secao-4 p {
+  padding: 20px;
+  font-size: 20px;
+  text-align: justify;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* ===================== SEÇÃO 5 ===================== */
+
+.secao-5 {
+  padding: 60px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f9f9f9; /* Um fundo leve para destacar os cards */
+}
+
+.container-sistema {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  max-width: 1200px;
+  margin: 30px auto 0;
+  padding: 0 20px;
+}
+
+.sistema {
+  background-image: linear-gradient(to top left, #113886, #2157c4, #1c70be);
+  border-radius: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex; /* Faz o card esticar para ocupar a mesma altura dos vizinhos */
+}
+
+.sistema:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 20px rgba(17, 56, 134, 0.3);
+}
+
+.sistema a {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  color: white;
+  text-decoration: none;
+  width: 100%;
+}
+
+/* 1. Título em cima, centralizado */
+.sistema h3 {
+  margin: 0;
+  font-size: 20px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  min-height: 50px; /* Garante que títulos curtos/longos fiquem alinhados */
+}
+
+/* 2. Descrição no meio, centralizada vertical e horizontal */
+.sistema .descricao {
+  font-size: 16px;
+  line-height: 1.6;
+  text-align: justify; /* Centralizado conforme solicitado */
+  margin: auto 0;    /* O segredo da centralização vertical (empurra o topo e a base) */
+  padding: 20px 0;
+}
+
+/* 3. "Saiba mais" alinhado no canto esquerdo com barrinha */
+.sistema .p-2 {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: left; /* Alinhado à esquerda */
+  text-transform: uppercase;
+  position: relative; /* Necessário para a barrinha ::after */
+  width: fit-content; /* A barrinha terá apenas o tamanho do texto */
+  padding-bottom: 5px;
+}
+
+/* Criando a barrinha branca para contrastar com o fundo azul */
+.sistema .p-2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0; /* Começa com largura zero */
+  height: 2px;
+  background-color: #ffffff;
+  transition: width 0.3s ease-in-out;
+}
+
+/* Quando o usuário passar o mouse no CARD, a barrinha cresce */
+.sistema:hover .p-2::after {
+  width: 100%;
+}
+
+/* ===================== SEÇÃO 6 ===================== */
+
+.secao-6 .fale-conosco{
+  padding: 20px;
+  border-radius: 20px;
+  background-color: #2157c4;
+  width: min(520px, 90%);
+  margin: 0 auto; /* padrão igual aos outros: sem margem extra vertical */
+  box-sizing: border-box;
+}
+
+.secao-6 .fale-conosco p {
+  color: white;
+  font-size: 30px;
+  text-align: center;
+  font-weight: bolder;
+}
+
+.secao-6 .fale-conosco .contatos {
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  padding: 20px;
+}
+
+.secao-6 .fale-conosco .contatos img {
+  width: 30px;
+  vertical-align: middle;
+}
+
+.secao-6 .fale-conosco .contatos .contato-1,
+.secao-6 .fale-conosco .contatos .contato-2 {
+  vertical-align: middle;
+  justify-content: center;
+  display: flex;
+  gap: 5px;
+}
+
+.secao-6 .fale-conosco .contatos a {
+  color: white;
+  text-decoration: none;
+}
+
+/*==========================MOBILE==========================*/
+
+@media (max-width: 600px) {
+
+  .titulos{
+    font-size: 15px;
+  }
+
+  .secao-1,
+  .secao-2,
+  .secao-3,
+  .secao-4,
+  .secao-5,
+  .secao-6 {
+    padding: 30px 0; /* padrão igual aos outros */
+  }
+
+  .secao-2 p,
+  .secao-3 p,
+  .secao-4 p {
+    font-size: 17px;
+  }
+}

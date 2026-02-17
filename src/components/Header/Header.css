@@ -1,0 +1,78 @@
+/* Container Principal */
+header {
+  width: 100%;
+  padding: 14px 20px;
+  background: white;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo img {
+  height: 50px;
+  width: auto;
+  display: block;
+}
+
+/* Menu de Navegação */
+.nav-menu {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #252733;
+  font-weight: 600;
+  padding: 8px 4px;
+  position: relative; 
+  transition: all 0.2s ease-in-out;
+}
+
+/* Criando a barrinha (invisível por padrão) */
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -2px; /* Joga a barra um pouco para baixo do texto */
+  left: 0;
+  width: 0; /* Começa com largura zero */
+  height: 3px; /* Espessura da barrinha */
+  background-color: #23317e;
+  transition: width 0.3s ease-in-out; /* Efeito de deslize */
+}
+
+.nav-link:hover {
+  color: #23317e;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+  
+}
+
+/* ESTADO FIXO: Quando a aba estiver selecionada (.active) */
+.nav-link.active {
+  color: #23317e;
+  font-weight: 700;
+}
+
+/* Faz a barrinha ficar com 100% de largura permanentemente no link ativo */
+.nav-link.active::after {
+  width: 100%;
+}
+
+.menu-toggle {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+}

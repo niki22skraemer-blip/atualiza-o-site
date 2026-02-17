@@ -1,0 +1,223 @@
+/* ===================== AJUSTE LOCAL DO CONTEÚDO ===================== */
+/* Regras globais (html, body, fonte base, overflow, reset)
+   ficam EXCLUSIVAMENTE no geral.css */
+
+/* Espaçamento do conteúdo em relação ao header fixo */
+
+
+/* Títulos reutilizados dentro da página */
+.titulos {
+  font-size: 20px;
+  color: #252733;
+  text-align: center;
+}
+
+/* ===================== SEÇÃO 1 ===================== */
+
+.secao-1 {
+  padding-top: 130px;
+  padding-bottom: 15px;
+  box-shadow: 0 7px 10px rgba(61, 81, 109, 0.377);
+  background: linear-gradient(to bottom right, #23317e, #27498c, #2450a6, #0465bf);
+}
+
+.secao-1 .titulo-principal {
+  font-size: 30px;
+  font-weight: bolder;
+  color: white;
+  text-align: center;
+}
+
+.secao-1 p {
+  color: white;
+  margin-top: 30px;
+  font-size: 18px;
+  text-align: justify;
+}
+
+.secao-1 .titulo-principal,
+.secao-1 p {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* ===================== SEÇÃO 2 ===================== */
+
+.secao-2 {
+  padding-top: 40px;
+  margin: 20px auto;
+  width: 90%;
+  max-width: 900px;
+}
+
+.secao-2 .bloco {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.secao-2 .titulo-coluna {
+  font-size: 28px;
+  font-weight: bold;
+  color: #23317e;
+  margin-bottom: 10px;
+}
+
+.secao-2 .conteudo-coluna p {
+  font-size: 17px;
+  line-height: 1.5;
+  margin: 0 auto;
+  max-width: 750px;
+}
+
+/* Animação reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
+/* ===================== SEÇÃO 4 ===================== */
+
+.secao-4 .fale-conosco{
+    margin: 0 auto;
+    margin-bottom: 30px;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: #2157c4;
+    width: min(520px, 90%); 
+    box-sizing: border-box;
+}
+
+
+.secao-4 .fale-conosco p {
+  color: white;
+  text-align: center;
+}
+
+.secao-4 .fale-conosco .contatos {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  text-align: center;
+}
+
+.secao-4 .fale-conosco .contatos img {
+  width: 24px;
+  vertical-align: middle;
+}
+
+.secao-4 .fale-conosco .contatos .contato-1,
+.secao-4 .fale-conosco .contatos .contato-2{
+    padding: 10px;
+    vertical-align: middle;
+    justify-content: center;
+    display: flex;
+    gap: 5px;
+}
+
+.secao-4 .fale-conosco .contato-1 a,
+.secao-4 .fale-conosco .contato-2 a {
+  text-decoration: none;
+  color: white;
+  align-items: center;
+  gap: 5px;
+  justify-content: center;
+  vertical-align: middle;
+  flex-wrap: wrap;
+}
+
+.secao-4 .fale-conosco .contato-3 p,
+.secao-4 .fale-conosco .contato-4 p {
+  font-size: 16px;
+  margin: 0;
+  max-width: 100%;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+.secao-4 .mapa {
+  width: 100%;
+  max-width: 650px;
+  height: 320px;
+  margin: 15px auto 0;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.secao-4 .mapa iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .secao-4 .fale-conosco {
+    padding: 20px;
+  }
+
+  .secao-4 .mapa {
+    height: 240px;
+  }
+}
+
+/* ===================== MOBILE FIXES (QUEM SOMOS) ===================== */
+@media (max-width: 600px) {
+  .secao-1 {
+    padding-top: 100px;
+    padding-bottom: 15px;
+  }
+
+  .secao-1 .titulo-principal {
+    font-size: 20px;
+    line-height: 1.15;
+    margin-bottom: 10px;
+    margin-top: 30px;
+  }
+
+  .secao-1 .subtitulo {
+    font-size: 15px;
+    line-height: 1.35;
+  }
+
+  .secao-2 {
+    padding: 30px 14px;
+  }
+
+  .secao-2 .titulo-coluna {
+    font-size: 22px;
+  }
+
+  .secao-2 .conteudo-coluna p {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .perfil-container img {
+    width: 150px;
+  }
+
+  .perfil-info h3 {
+    font-size: 1.3rem;
+  }
+
+  .perfil-info p {
+    font-size: 0.95rem;
+  }
+}
+

@@ -1,0 +1,388 @@
+/* ===================== AJUSTE LOCAL DO CONTEÚDO ===================== */
+main {
+  margin-top: 70px;
+}
+
+.titulos {
+  font-size: 20px;
+  color: #252733;
+  text-align: center;
+}
+
+/* ===================== PADRÃO DE ESPAÇAMENTO ENTRE SECTIONS ===================== */
+/* mesmo "respiro" em todas as sections, sem interferir no layout interno */
+.secao-1,
+.secao-2,
+.secao-3,
+.secao-4,
+.secao-5,
+.secao-6 {
+  padding: 60px 0;
+}
+
+/* ===================== SEÇÃO 1 ===================== */
+.secao-1 {
+  text-align: center;
+  padding: 60px 20px; /* mantém o interno dela */
+  background-image: linear-gradient(
+    to bottom right,
+    #23317e,
+    #27498c,
+    #2450a6,
+    #0465bf
+  );
+}
+
+.secao-1 .titulo-1 {
+  max-width: 800px;
+  margin: 0 auto;
+  color: white;
+  font-size: clamp(22px, 4.8vw, 30px);
+  line-height: 1.15;
+}
+
+
+.secao-1 .subtitulo {
+  max-width: 800px;
+  margin: 12px auto 0;
+  color: white;
+  font-size: clamp(16px, 3.5vw, 20px);
+  line-height: 1.4;
+  font-weight: 300;
+}
+
+.secao-1 .subtitulo p {
+  margin: 20px;
+  font-size: clamp(16px, 3.5vw, 20px);
+  line-height: 1.4;
+}
+
+/* ===================== SEÇÃO 2 ===================== */
+.secao-2 {
+  background: white;
+  margin-top: 0;        /* REMOVE o efeito que desalinhar as sections */
+  padding-top: 60px;    /* padroniza */
+  padding-bottom: 60px; /* padroniza */
+}
+
+.secao-2 p {
+  padding: 20px;
+  font-size: 20px;
+  text-align: justify;
+  max-width: 800px;
+  margin: 0 auto;       /* REMOVE o 60px extra que causava diferença */
+}
+
+/* ===================== SEÇÃO 3 ===================== */
+.secao-3 {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+.secao-3 p {
+  padding: 20px;
+  font-size: 20px;
+  text-align: justify;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* ===================== SEÇÃO 4 ===================== */
+.secao-4 {
+  background: white;
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+.secao-4 .container-poster {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  justify-content: center;
+  gap: 20px;
+  margin: 20px;
+  padding-bottom: 30px; /* mantém visual interno */
+}
+
+.secao-4 .container-poster img {
+  width: 500px;
+  border-radius: 10px;
+  border: 1px solid rgb(241, 238, 238);
+  box-shadow: 2px 8px 10px rgba(76, 88, 109, 0.151);
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.secao-4 .container-poster img:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 10px rgba(51, 65, 90, 0.192);
+}
+
+.secao-4 .container-balao {
+  padding-top: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 25px;
+
+  justify-items: center;
+  align-items: stretch;
+}
+
+.secao-4 .balao {
+  padding: 20px;
+  display: flex;
+  width: 220px;
+  height: 150px;
+  background-image: linear-gradient(to top left, #113886, #2157c4, #1c70be);
+  border-radius: 25px;
+  align-items: center;
+  color: white;
+  text-align: center;
+  justify-content: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.secao-4 .balao:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 10px rgba(51, 65, 90, 0.192);
+}
+
+/* ===================== SEÇÃO 5 ===================== */
+.secao-5 {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+.secao-5 .container-balao-2 {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  max-width: 700px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 25px;
+
+  justify-items: center;
+  align-items: stretch;
+}
+
+.secao-5 .balao-2 {
+  padding: 20px;
+  display: flex;
+  width: 220px;
+  height: 150px;
+  background-image: linear-gradient(to top left, #113886, #2157c4, #1c70be);
+  border-radius: 25px;
+  align-items: center;
+  color: white;
+  text-align: center;
+  justify-content: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.secao-5 .carrossel {
+  margin: 40px auto;
+  width: 90%;
+  overflow: hidden;
+}
+
+.secao-5 .carrossel-track {
+  display: flex;
+  width: max-content;
+  animation: scroll 40s linear infinite;
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.secao-5 .carrossel-group {
+  display: flex;
+  gap: 50px;
+}
+
+.secao-5 .card {
+  flex: 0 0 auto;
+  width: 180px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  text-align: center;
+}
+
+/* padrão para todas */
+.secao-5 .card img {
+  max-width: 100%;
+  width: 150px;
+  height: 130px;
+  object-fit: contain;
+  display: block;
+}
+
+/* ===================== SEÇÃO 6 ===================== */
+.secao-6 {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+.secao-6 .fale-conosco {
+  padding: 20px;
+  border-radius: 20px;
+  background-color: #2157c4;
+  width: min(520px, 90%);
+  margin: 0 auto; /* mantém central e sem variação */
+  box-sizing: border-box;
+}
+
+.secao-6 .fale-conosco p {
+  color: white;
+  font-size: 30px;
+  text-align: center;
+  font-weight: bolder;
+}
+
+.secao-6 .fale-conosco .contatos {
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  padding: 20px;
+}
+
+.secao-6 .fale-conosco .contatos img {
+  width: 30px;
+  vertical-align: middle;
+}
+
+.secao-6 .fale-conosco .contatos .contato-1,
+.secao-6 .fale-conosco .contatos .contato-2 {
+  vertical-align: middle;
+  justify-content: center;
+  display: flex;
+  gap: 5px;
+}
+
+.secao-6 .fale-conosco .contatos a {
+  text-decoration: none;
+  color: white;
+}
+
+
+/* ===================== RESPONSIVO ===================== */
+@media (max-width: 768px) {
+  .titulos { font-size: 15px; }
+
+  .secao-1,
+  .secao-2,
+  .secao-3,
+  .secao-4,
+  .secao-5,
+  .secao-6 {
+    padding: 30px 0; 
+  }
+
+  .secao-2 p,
+  .secao-3 p { font-size: 17px; }
+
+  .secao-4 .container-balao {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px; 
+    margin: 40px; 
+    justify-items: center;
+    align-items: stretch;
+  }
+
+  .secao-4 .balao {
+    width: 100%;          /* ocupa toda a largura da coluna */
+    max-width: 115px;     /* limita pra não ficar gigante */
+    height: 110px;        /* um pouco maior */
+    padding: 10px;        /* dá “respiro” interno */
+    border-radius: 15px;
+  }
+
+  .secao-4 .balao p {
+    font-size: 12px;
+    line-height: 1.25;
+    margin: 0;
+  }
+
+  .secao-5 .container-balao-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+    margin: 20px;
+    margin-bottom: 30px;
+    align-items: stretch;
+  }
+
+  .secao-5 .balao-2 {
+    height: 100px;
+    width: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    text-align: center;
+  }
+
+  @media (max-width: 768px) {
+  .secao-5 .carrossel {
+    margin: 30px auto;
+  }
+
+  .secao-5 .carrossel-group {
+    gap: 24px;
+  }
+
+  .secao-5 .card {
+    width: 140px;      /* define largura no mobile também */
+    height: 90px;
+    padding: 10px;     /* 15px pode “encolher” a logo */
+  }
+
+  /* padrão geral no mobile */
+  .secao-5 .card img {
+    max-width: 100%;
+    width: 90px;
+    height: 90px;
+    padding: 0;        /* mantém padrão */
+  }
+}
+}
+@media (max-width: 768px) {
+  .secao-4 .container-poster {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    margin: 12px;
+  }
+
+  /* Imagens responsivas e nítidas */
+  .secao-4 .container-poster img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    display: block;
+  }
+
+  /* 3º card vai para baixo e fica centralizado */
+  .secao-4 .poster:nth-child(3) {
+    grid-column: 1 / -1;       /* ocupa a linha inteira */
+    display: flex;
+    justify-content: center;   /* centraliza */
+  }
+
+  /* 3º com o MESMO tamanho de uma coluna */
+  .secao-4 .poster:nth-child(3) a {
+    width: calc((100% - 14px) / 2); /* (100% - gap) / 2 */
+  }
+
+  .secao-4 .poster:nth-child(3) img {
+    width: 100%;
+  }
+}
