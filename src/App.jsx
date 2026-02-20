@@ -1,6 +1,5 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import ScrollToTop from "./ScrollToTop.jsx";
-
 import SiteLayout from "./layouts/SiteLayout.jsx";
 
 import Home from "./pages/Home/Home.jsx";
@@ -8,6 +7,7 @@ import Servicos from "./pages/Servicos/Servicos.jsx";
 import Sistemas from "./pages/Sistemas/Sistemas.jsx";
 import Sobre from "./pages/Sobre/Sobre.jsx";
 import Drawback from "./pages/Drawback/Drawback.jsx";
+import Timeline from "./pages/Timeline/Timeline.jsx"; // IMPORTAÇÃO DA TIMELINE
 
 import Reintegra from "./pages/Reintegra/Reintegra.jsx";
 import Sped from "./pages/Sped/Sped.jsx";
@@ -21,15 +21,16 @@ export default function App() {
   return (
     <>
       <ScrollToTop />
-
       <Routes>
         <Route path="/" element={<SiteLayout />}>
           <Route index element={<Home />} />
-
           <Route path="servicos" element={<Servicos />} />
           <Route path="sistemas" element={<Sistemas />} />
           <Route path="sobre" element={<Sobre />} />
           <Route path="drawback" element={<Drawback />} />
+          
+          {/* NOVA ROTA PARA O HISTÓRICO */}
+          <Route path="historico" element={<Timeline />} />
 
           <Route path="reintegra" element={<Reintegra />} />
           <Route path="sped" element={<Sped />} />
