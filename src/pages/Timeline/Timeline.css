@@ -1,0 +1,406 @@
+
+*{
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #27498c;
+}
+
+
+
+img{
+
+    vertical-align: middle;
+    max-width: 100%;
+    display: inline-block;
+    border-radius: 10px;
+
+}
+
+
+
+.inline-block{
+
+    max-width: 100%;
+
+    display: inline-block;
+
+}
+
+
+.timeline_component{
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    max-width: 1120px;
+    margin-left: auto;
+    margin-right: auto;
+
+    display: flex;
+
+    position: relative;
+
+}
+
+
+
+.timeline_item{
+
+    z-index: 2;
+
+    grid-column-gap: 0px;
+
+    grid-row-gap: 0px;
+
+    grid-template-rows: auto;
+
+    grid-template-columns: 1fr 150px 1fr;
+
+    grid-auto-columns: 1fr;
+
+    padding-top: 80px;
+
+    padding-bottom: 80px;
+
+    display: grid;
+
+    position: relative;
+
+}
+
+
+
+.timeline_left{
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    align-items: stretch;
+
+}
+
+
+
+.timeline_centre{
+
+    justify-content: center;
+
+    display: flex;
+
+}
+
+
+
+.timeline_date-text{
+
+    color: #fff;
+
+    letter-spacing: -0.03em;
+
+    font-size: 30px;
+
+    font-weight: 500;
+
+    line-height: 1.2;
+
+    position: sticky;
+
+    top: 50vh;
+
+}
+
+
+
+.timeline_text{
+
+    color: #fff;
+
+    font-size: 24px;
+
+    font-weight: 500;
+
+    line-height: 1.3;
+
+}
+
+
+
+.timeline_circle{
+
+    background-color: #fff;
+
+    border-radius: 100%;
+
+    width: 15px;
+
+    min-width: 15px;
+
+    max-width: 15px;
+
+    height: 15px;
+
+    min-height: 15px;
+
+    max-height: 15px;
+
+    position: sticky;
+
+    top: 50vh;
+
+    box-shadow: 0 0 0 8px #2261d6;
+
+}
+
+
+
+.timeline_progress{
+
+    z-index: -2;
+
+    background-color: #ffffff;
+
+    width: 3px;
+
+    height: 100%;
+
+    position: absolute;
+
+}
+
+
+
+.timeline_progress-bar{
+
+    z-index: -1;
+
+    background: rgb(255, 255, 255);
+
+    background: -webkit-linear-gradient(
+
+        to bottom,
+
+        rgb(40, 57, 204),
+
+        rgb(44, 161, 216)
+
+    );
+
+    background: linear-gradient(
+
+        to bottom,
+
+        rgb(40, 57, 204),
+
+        rgb(44, 161, 216)
+
+    );
+
+
+
+    width: 3px;
+
+    height: 50vh;
+
+    position: fixed;
+
+    inset: 0 auto 50vh;
+
+}
+
+
+
+.section-timeline{
+
+    z-index: -3;
+
+    background-color: #2b2986;
+
+    position: relative;
+
+}
+
+
+
+.margin-bottom-xlarge{
+
+    margin-bottom: 56px;
+
+}
+
+
+
+.timeline_link{
+
+    opacity: 0.6;
+
+    color: #fff;
+
+    letter-spacing: 0.8px;
+
+    text-transform: uppercase;
+
+    border-radius: 8px;
+
+    align-items: center;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    line-height: 1.3;
+
+    text-decoration: none;
+
+    transition: opacity 0.3s;
+
+    display: flex;
+
+}
+
+
+
+.timeline_link:hover{
+
+    opacity: 1;
+
+}
+
+
+
+.link-icon{
+
+    width: 20px;
+
+    height: 20px;
+
+    margin-left: 8px;
+
+}
+
+
+
+.inline-block{
+
+    display: inline-block;
+
+}
+
+
+
+.text-colour-lightgrey{
+
+    color: #ffffffa6;
+
+}
+
+@media screen and (max-width: 767px) {
+    .timeline_component {
+        align-items: flex-start; /* Alinha o conteúdo à esquerda no mobile */
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .timeline_progress {
+        position: absolute;
+        left: 20px;     
+        width: 3px;
+        height: 100%;
+        background-color: rgb(255, 255, 255);
+        z-index: 1;
+        transform: none;
+    }
+
+    .timeline_progress-bar {
+        position: fixed;
+        left: 30px;
+        width: 3px;
+        height: 50vh;
+        background: linear-gradient(to bottom, #2839cc, #2ca1d8);
+        z-index: 2;
+        left: 30px; 
+        margin-left: 0;
+    }
+
+    .timeline_item {
+        display: block;
+        width: 100%;
+        padding-left: 50px;
+        padding-top: 40px;
+        padding-bottom: 40px;
+        position: relative;
+    }
+
+    .timeline_centre {
+        position: absolute;
+        left: 20px; 
+        top: 45px;
+        width: 3px;   
+        height: 20px;
+        display: flex;
+        justify-content: center;
+        z-index: 3;
+    }
+
+    .timeline_circle {
+        position: relative;
+        min-width: 15px;
+        height: 15px;
+        background-color: #fff;
+        border-radius: 50%;
+        box-shadow: 0 0 0 5px #2261d6;
+        top: 0;
+    }
+
+    .timeline_left, .timeline_right {
+        display: block;
+        width: 100%;
+        text-align: left !important;
+        direction: ltr !important;
+    }
+
+    .timeline_date-text {
+        font-size: 32px;
+        position: relative;
+        top: 0;
+        margin-bottom: 10px;
+    }
+}
+
+/*============CONTINUAÇÃO PARTE DO DESKTOP=============*/
+
+.timeline_item:nth-child(even) {
+    grid-template-columns: 1fr 150px 1fr;
+    direction: rtl  ; 
+}
+
+/* Restaura a direção do texto para leitura normal dentro dos blocos invertidos */
+.timeline_item:nth-child(even) .timeline_left,
+.timeline_item:nth-child(even) .timeline_right,
+.timeline_item:nth-child(even) .timeline_centre {
+    direction: ltr;
+}
+
+/* Ajusta o alinhamento da Data nos itens pares (Agora ela estará na direita) */
+.timeline_item:nth-child(even) .timeline_left {
+    justify-content: flex-start; /* Alinha a data para o centro da timeline */
+}
+
+/* Ajusta o alinhamento do Texto/Imagem nos itens pares (Agora estarão na esquerda) */
+.timeline_item:nth-child(even) .timeline_right {
+    text-align: right; /* Opcional: faz o texto acompanhar a borda da timeline */
+}
+
+/* Garante que o Sticky da data e do círculo continuem funcionando na inversão */
+.timeline_item:nth-child(even) .timeline_date-text,
+.timeline_item:nth-child(even) .timeline_circle {
+    position: sticky;
+    top: 50vh;
+}

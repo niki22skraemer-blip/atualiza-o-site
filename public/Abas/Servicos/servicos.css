@@ -1,13 +1,8 @@
-/* ===================== AJUSTE LOCAL DO CONTEÚDO ===================== */
-/* Regras globais (html, body, fonte base, overflow, reset)
-   ficam EXCLUSIVAMENTE no geral.css */
 
-/* Espaçamento do conteúdo em relação ao header fixo */
 main {
   margin-top: 70px;
 }
 
-/* Títulos usados dentro da página Serviços */
 .titulos {
   font-size: 20px;
   color: #252733;
@@ -15,6 +10,7 @@ main {
 }
 
 /* ===================== PADRÃO DE ESPAÇAMENTO ENTRE SECTIONS ===================== */
+
 .secao-1,
 .secao-2,
 .secao-3,
@@ -28,7 +24,7 @@ main {
 
 .secao-1 {
   text-align: center;
-  padding: 60px 20px; /* padrão igual aos outros */
+  padding: 60px 20px;
   background-image: linear-gradient(
     to bottom right,
     #23317e,
@@ -63,38 +59,81 @@ main {
 
 /* ===================== SEÇÃO 2 ===================== */
 
-.secao-2 {
+.secao-2-container {
   max-width: 1100px;
-  margin: 0 auto;
-  padding-left: 20px;
-  padding-right: 20px;
-
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: 30px;
+  margin: 100px auto;
+  padding: 0 20px;
+  min-height: 450px;
+  display: flex;
+  justify-content: center;
   align-items: center;
+  position: relative;
 }
 
-.secao-2 .texto {
-  max-width: none;
+.wrapper-animacao {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: relative;
 }
 
-.secao-2 img {
+.foto-animada {
   width: 100%;
   max-width: 420px;
   border-radius: 40px;
-  display: block;
-  justify-self: center;
+  z-index: 2;
+  transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateX(0); /* Começa no centro */
 }
 
+.texto-animado {
+  position: absolute; /* Atrás da foto no início */
+  z-index: 1;
+  opacity: 0;
+  max-width: 550px;
+  transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateX(0); /* Começa no centro */
+}
 
-.secao-2 p {
+/* --- ESTADO ATIVO (AO SCROLLAR) --- */
+
+.wrapper-animacao.ativo .foto-animada {
+  /* Move a foto para a direita (70% para afastar bem) */
+  transform: translateX(70%); 
+}
+
+.wrapper-animacao.ativo .texto-animado {
+  /* Move o texto para a esquerda (-65% para afastar bem) */
+  opacity: 1;
+  transform: translateX(-65%);
+}
+
+.texto-animado p {
   font-size: 20px;
   text-align: justify;
   margin: 0;
+  line-height: 1.6;
 }
 
-
+/* Mobile: Ajuste para empilhar os elementos */
+@media (max-width: 900px) {
+  .secao-2-container {
+    margin: 50px auto;
+  }
+  .wrapper-animacao.ativo {
+    flex-direction: column-reverse; /* Foto fica embaixo no mobile */
+  }
+  .wrapper-animacao.ativo .foto-animada,
+  .wrapper-animacao.ativo .texto-animado {
+    transform: translateX(0);
+    position: relative;
+    max-width: 100%;
+  }
+  .texto-animado {
+    margin-bottom: 20px;
+  }
+}
 
 /* ===================== MOBILE (SEÇÕES 2 e 3) ===================== */
 
@@ -113,7 +152,6 @@ main {
   }
 }
 
-
 /* ===================== SEÇÃO 5 - CARDS DE SERVIÇOS ===================== */
 
 .secao-5 {
@@ -126,7 +164,7 @@ main {
 }
 
 .container-sistema {
-  display: grid;
+  display: grid; 
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
   max-width: 1200px;
@@ -169,37 +207,34 @@ main {
 .sistema .descricao {
   font-size: 16px;
   line-height: 1.6;
-  text-align: justify; /* Centralizado conforme solicitado */
-  margin: auto 0;    /* O segredo da centralização vertical (empurra o topo e a base) */
+  text-align: justify;
+  margin: auto 0;    
   padding: 20px 0;
 }
 
-/* 3. "Saiba mais" alinhado no canto esquerdo com barrinha */
 .sistema .p-2 {
   display: inline-block;
   margin-top: 10px;
   font-size: 14px;
   font-weight: 700;
-  text-align: left; /* Alinhado à esquerda */
+  text-align: left;
   text-transform: uppercase;
-  position: relative; /* Necessário para a barrinha ::after */
-  width: fit-content; /* A barrinha terá apenas o tamanho do texto */
+  position: relative;
+  width: fit-content;
   padding-bottom: 5px;
 }
 
-/* Criando a barrinha branca para contrastar com o fundo azul */
 .sistema .p-2::after {
   content: "";
   position: absolute;
   left: 0;
   bottom: 0;
-  width: 0; /* Começa com largura zero */
+  width: 0;
   height: 2px;
   background-color: #ffffff;
   transition: width 0.3s ease-in-out;
 }
 
-/* Quando o usuário passar o mouse no CARD, a barrinha cresce */
 .sistema:hover .p-2::after {
   width: 100%;
 }
@@ -208,25 +243,25 @@ main {
 
 @media (max-width: 768px) {
   .container-sistema {
-    grid-template-columns: 1fr; /* 1 card por linha no mobile */
-    max-width: 400px; /* Card não fica esticado demais */
+    grid-template-columns: 1fr;
+    max-width: 400px;
   }
   
   .sistema .descricao {
-    font-size: 16px; /* Texto um pouco maior para leitura no telemóvel */
+    font-size: 16px;
   }
 }
 
-
 /* ===================== MOBILE ADJUSTMENTS ===================== */
+
 @media (max-width: 900px) {
   .container-sistema {
-    grid-template-columns: 1fr; /* Um card por linha no mobile */
+    grid-template-columns: 1fr;
     gap: 20px;
   }
 
   .container-sistema .sistema {
-    max-width: 450px; /* Evita que o card fique largo demais no mobile */
+    max-width: 450px;
     margin: 0 auto;
     width: 100%;
   }
@@ -239,7 +274,7 @@ main {
   border-radius: 20px;
   background-color: #2157c4;
   width: min(520px, 90%);
-  margin: 0 auto; /* padrão igual aos outros: sem margem extra vertical */
+  margin: 0 auto;
   box-sizing: border-box;
 }
 
@@ -290,7 +325,7 @@ main {
   .secao-4,
   .secao-5,
   .secao-6 {
-    padding: 30px 0; /* padrão igual aos outros */
+    padding: 30px 0;
   }
 
   .secao-2 p,

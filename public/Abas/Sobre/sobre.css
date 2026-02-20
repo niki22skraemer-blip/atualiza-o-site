@@ -1,11 +1,4 @@
-/* ===================== AJUSTE LOCAL DO CONTEÚDO ===================== */
-/* Regras globais (html, body, fonte base, overflow, reset)
-   ficam EXCLUSIVAMENTE no geral.css */
 
-/* Espaçamento do conteúdo em relação ao header fixo */
-
-
-/* Títulos reutilizados dentro da página */
 .titulos {
   font-size: 20px;
   color: #252733;
@@ -83,8 +76,6 @@
   opacity: 1;
   transform: translateY(0);
 }
-
-
 
 /* ===================== SEÇÃO 4 ===================== */
 
@@ -177,6 +168,7 @@
 }
 
 /* ===================== MOBILE FIXES (QUEM SOMOS) ===================== */
+
 @media (max-width: 600px) {
   .secao-1 {
     padding-top: 100px;

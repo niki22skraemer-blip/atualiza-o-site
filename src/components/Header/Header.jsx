@@ -4,11 +4,32 @@ import "./Header.css";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
 
-  const toggleMenu = () => setOpen((v) => !v);
-  const closeMenu = () => setOpen(false);
+  // Fecha tudo (menu lateral e dropdown)
+  const closeMenu = () => {
+    setOpen(false);
+    setDropdownOpen(false);
+  };
 
-  // Esta função garante que a classe 'active' seja aplicada corretamente
+  // Abre/Fecha o menu hambúrguer
+  const toggleMenu = () => {
+    setOpen((v) => !v);
+    setDropdownOpen(false); 
+  };
+
+  // Lógica específica para o mobile: abre o "Histórico" ao clicar
+  const toggleDropdown = (e) => {
+    if (window.innerWidth <= 768) {
+      // Impede ir para a página "Sobre" no primeiro clique para mostrar o submenu
+      e.preventDefault(); 
+      setDropdownOpen(!dropdownOpen);
+    } else {
+      // No desktop, o clique navega normal, o hover já mostra o menu
+      closeMenu();
+    }
+  };
+
   const checkActive = ({ isActive }) => (isActive ? "nav-link active" : "nav-link");
 
   return (
@@ -24,7 +45,7 @@ export default function Header() {
           <span className="bar"></span>
         </button>
 
-        <nav id="primary-nav" className="nav">
+        <nav id="primary-nav" className={`nav ${open ? "is-open" : ""}`}>
           <div className="nav-menu">
             <NavLink to="/drawback" className={checkActive} onClick={closeMenu}>
               Drawback
@@ -35,13 +56,30 @@ export default function Header() {
             <NavLink to="/servicos" className={checkActive} onClick={closeMenu}>
               Serviços
             </NavLink>
-            {/* O ERRO ESTAVA AQUI: Removi o onClick duplicado */}
             <NavLink to="/sistemas" className={checkActive} onClick={closeMenu}>
               Sistemas
             </NavLink> 
-            <NavLink to="/sobre" className={checkActive} onClick={closeMenu}>
-              Quem Somos
-            </NavLink>
+            
+            {/* CONTAINER DO QUEM SOMOS + DROPDOWN */}
+            <div className={`nav-item-container ${dropdownOpen ? "dropdown-active" : ""}`}>
+              <NavLink 
+                to="/sobre" 
+                className={checkActive} 
+                onClick={toggleDropdown}
+              >
+                Quem Somos
+              </NavLink>
+              
+              <div className="submenu">
+                <NavLink 
+                  to="/historico" 
+                  className="submenu-link" 
+                  onClick={closeMenu}
+                >
+                  Histórico
+                </NavLink>
+              </div>
+            </div>
           </div>
         </nav>
       </div>
